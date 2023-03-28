@@ -5,19 +5,19 @@
     "J'ai tout mis sur une seule page.",
     'La meteo est a droite!',
     'Et le graphique ^1000 se trouve plus bas.'
-  ],
+  ],  
   typeSpeed: 40,
   startDelay: 1000,
   showCursor: true,
   cursorChar: '|',
   autoInsertCss: true
- });
+}); 
 
 
 
 
 
-let meteoContenair = document.querySelector('.meteoWidget');
+let meteoContenair = document.querySelector('.meteoWidget'); 
 let iconBox = meteoContenair.querySelector('.iconContainer');
 let description = meteoContenair.querySelector('.descriptionWeather');
 let cityHtml = meteoContenair.querySelector('.city');
@@ -25,19 +25,28 @@ let tempContainer = meteoContenair.querySelector ('.temp');
 let currentPos = document.querySelector(".currentPosition")
 let form = document.querySelector('form');
 
+// valeur par default pour la ville
+let cityDefault = "Paris"
+let input;
+let crd ;
+
+if(input === undefined && crd === undefined){
+  importAxios(`https://api.openweathermap.org/data/2.5/weather?q=${cityDefault}&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`)
+}
+
 
 /* Evemenent de soumission de l'entrée 'ville' pour la méteo */
 form.addEventListener('submit', (e) => {
   e.preventDefault(); 
-  let input = document.querySelector('input');
+  input = document.querySelector('input');
   const urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
   if(input.value === ""){
     console.log('Saisir la ville');
   }else{
     importAxios(urlCity);
 
-  }
-})
+  }  
+})  
  
   
   /* Récuperation de la position de l'utilisateur en cas de clic sur le bouton 'position' */
@@ -47,10 +56,10 @@ form.addEventListener('submit', (e) => {
       enableHighAccuracy: true,
       timeout: 5000,
       maximumAge: 0
-    };
+    };  
     
     function success(pos) {
-      let crd = pos.coords;
+      crd = pos.coords;
       console.log('Votre position actuelle est :');
       console.log(`Latitude : ${crd.latitude}`);
       console.log(`Longitude : ${crd.longitude}`);
@@ -58,16 +67,16 @@ form.addEventListener('submit', (e) => {
       const urlCurrentPos = `https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&limit=5&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
       importAxios(urlCurrentPos);
       
-    }
+    }  
     
     function error(err) {
       console.warn(`ERREUR (${err.code}): ${err.message}`);
-    }
+    }  
     
     navigator.geolocation.getCurrentPosition(success, error, options);
       
 
-});
+});    
 
 /*-- Import des données meteo --*/
 function importAxios(urlAxios){
@@ -78,15 +87,15 @@ function importAxios(urlAxios){
       cityHtml.textContent = response.data.name;
       description.textContent = response.data.weather[0].description;
       tempContainer.textContent = response.data.main.temp;
-      iconBox.innerHTML = `<img src='https://openweathermap.org/img/w/${icone}.png'>`;
-  
-      
-    })
+      iconBox.innerHTML = `<img src='http://openweathermap.org/img/w/${icone}.png'>`;      
+    })  
   .catch(error =>{
     console.log(error.message)
-  })
+  })  
 
-}
+}  
+
+
 
 
 // Debut du graphique
