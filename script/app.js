@@ -30,7 +30,7 @@ let form = document.querySelector('form');
 form.addEventListener('submit', (e) => {
   e.preventDefault(); 
   let input = document.querySelector('input');
-  const urlCity = `http://api.openweathermap.org/data/2.5/weather?q=${input.value}&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
+  const urlCity = `https://api.openweathermap.org/data/2.5/weather?q=${input.value}&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
   if(input.value === ""){
     console.log('Saisir la ville');
   }else{
@@ -55,7 +55,7 @@ form.addEventListener('submit', (e) => {
       console.log(`Latitude : ${crd.latitude}`);
       console.log(`Longitude : ${crd.longitude}`);
       console.log(`La précision est de ${crd.accuracy} mètres.`);
-      const urlCurrentPos = `http://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&limit=5&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
+      const urlCurrentPos = `https://api.openweathermap.org/data/2.5/weather?lat=${crd.latitude}&lon=${crd.longitude}&limit=5&APPID=b4c9af6bbf5b4c25a0a81708d9412e67&units=metric`;
       importAxios(urlCurrentPos);
       
     }
@@ -78,7 +78,7 @@ function importAxios(urlAxios){
       cityHtml.textContent = response.data.name;
       description.textContent = response.data.weather[0].description;
       tempContainer.textContent = response.data.main.temp;
-      iconBox.innerHTML = `<img src='http://openweathermap.org/img/w/${icone}.png'>`;
+      iconBox.innerHTML = `<img src='https://openweathermap.org/img/w/${icone}.png'>`;
   
       
     })
