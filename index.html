@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <section class="section1">
+        <!-- Section  TypedJS -->
+        <div class="left">
+            <h1 class="element"></h1>
+            <p class="scrollMessage">Scroll down</p>
+            <div class="arrowdown">
+                <i class="fa-solid fa-chevron-down fa-bounce">
+                    <i class="fa-solid fa-chevron-down fa-bounce"></i>
+                </i>
+
+            </div>
+        </div>
+        <!-- Section widget meteo  -->
+        <div class="right">
+            <div class="meteoWidget">
+                <h2>Meteo</h2>
+                <div class="icoDesciption">
+                    <div class="iconContainer"></div>
+                    <p class="descriptionWeather">Pluie</p>
+                </div>
+                <div class="cityTemp-container">
+                    <p class="city">Mouais</p>
+                    <p><span class="temp">9</span> °C</p>
+                </div>
+                <form>
+                    <input type="text" name="" id="" placeholder="Saisir une ville">
+                    <button type="submit">Valider</button>
+                </form>
+                <p class="currentPosition"><i class="fa-solid fa-location-dot "></i> Votre position</p>
+
+
+
+            </div>
+    </section>
+    </div>
+
+
+    <!-- Section AOS -->
+    <section class="section2">
+        <!-- chartJS -->
+        <div class="bpi-container" data-aos="fade-right" data-aos-offset="300" data-aos-easing="ease-in-sine">
+            <h2>Prix du bitcoin</h2>
+            <canvas id="bpiChart" aria-label="Hello ARIA World" role="img">
+            </canvas>
+        </div>
+
+        <div class="contenairPicture">
+            <img data-aos="fade-left" src="https://picsum.photos/500/400?random=1" alt="" class="picture picture1">
+            <img data-aos="fade-right" src="https://picsum.photos/500/400?random=2" alt="" class="picture picture2">
+            <img data-aos="fade-left" src="https://picsum.photos/500/400?random=3" alt="" class="picture picture3">
+            <img data-aos="fade-right" src="https://picsum.photos/500/400?random=4" alt="" class="picture picture4">
+            <img data-aos="fade-left" src="https://picsum.photos/500/400?random=5" alt="" class="picture picture5">img
+        </div>
+
+
+
+    </section>
+
+
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="script/app.js"></script>
+    <script src="https://kit.fontawesome.com/6e2cd958b0.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
